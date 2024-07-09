@@ -1,12 +1,20 @@
-// TranscriptionDisplay.jsx
-import React from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
-function TranscriptionDisplay() {
+function TranscriptionDisplay({ transcriber }) {
+  const [transcription, setTranscription] = useState("");
+
+  useEffect(() => {
+    if (transcriber.output) {
+      setTranscription(
+        (prevTranscription) => prevTranscription + " " + transcriber.output.text
+      );
+    }
+  }, [transcriber.output]);
+
   return (
     <div className="transcription-display">
       <h2>Transcription Output</h2>
-      {/* Placeholder for transcription output */}
-      <p>Transcribed text will appear here...</p>
+      <div>{transcription}</div>
     </div>
   );
 }
