@@ -92,24 +92,15 @@ export function useTranscriber() {
         } else {
           audio = audioData.getChannelData(0);
         }
-        const sampleRate = audioData.sampleRate;
-        const chunkSize = sampleRate * 10; // 10 seconds worth of samples
 
-        for (let start = 0; start < audio.length; start += chunkSize) {
-          const end = Math.min(start + chunkSize, audio.length);
-          const audioChunk = audio.slice(start, end);
-
-          webWorker.postMessage({
-            audio: audioChunk,
-            model,
-            multilingual,
-            quantized,
-            subtask: multilingual ? subtask : null,
-            language: multilingual && language !== "auto" ? language : null,
-          });
-
-          await new Promise((resolve) => setTimeout(resolve, 1000)); // Ensure messages are sent separately
-        }
+        webWorker.postMessage({
+          audio,
+          model,
+          multilingual,
+          quantized,
+          subtask: multilingual ? subtask : null,
+          language: multilingual && language !== "auto" ? language : null,
+        });
       }
     },
     [webWorker, model, multilingual, quantized, subtask, language]

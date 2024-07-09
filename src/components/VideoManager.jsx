@@ -14,20 +14,6 @@ export function VideoManager(props) {
 
   const isVideoLoading = progress !== undefined;
 
-  const setVideoFromDownload = async (data, mimeType) => {
-    const audioCTX = new AudioContext({
-      sampleRate: Constants.SAMPLING_RATE,
-    });
-    const blobUrl = URL.createObjectURL(new Blob([data], { type: "audio/*" }));
-    const decoded = await audioCTX.decodeAudioData(data);
-    setVideoData({
-      buffer: decoded,
-      url: blobUrl,
-      source: "URL",
-      mimeType: mimeType,
-    });
-  };
-
   return (
     <>
       <div className="flex flex-col justify-center items-center rounded-lg bg-white shadow-xl shadow-black/5 ring-1 ring-slate-700/10">
