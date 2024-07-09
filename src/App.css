@@ -1,0 +1,73 @@
+/* General body styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Main App container styling */
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Styling for the section titles */
+h1, h2 {
+  color: #2c3e50;
+}
+
+/* Audio Input Component styling */
+.audio-input {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Transcription Display Component styling */
+.transcription-display {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  min-height: 100px; /* Adjust height based on content or preference */
+  overflow-y: auto; /* Allows scrolling if content is too long */
+}
+
+/* Styling for buttons and input fields, ensuring consistency */
+button, input {
+  font-size: 16px;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #e7e7e7; /* Light grey background for inputs and buttons */
+  cursor: pointer;
+}
+
+button:hover, input:hover {
+  background-color: #ddd; /* Darker background on hover */
+}
+
+button:active {
+  background-color: #bbb; /* Even darker background when clicked */
+}
+
+/* Responsive adjustments for smaller screens */
+@media​⬤
